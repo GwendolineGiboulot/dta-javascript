@@ -95,17 +95,11 @@ let findComplete = function (listePizza){
 
 
 let loadRecipe = function (listRecipe){
-	listeRecipe.forEach( recipe => {
 
-		let li = document.createElement('li');
 
-		li.innerHTML = recipe.name;
-		li.classList.add('list-group-item');
-
-		let ul = document.getElementById('recipes');;
-		ul.appendChild(li);
-
-	});
+	let toto = fetch('http://10.1.0.136:3000/recipes')
+	.then(response => response.json())
+	.then(recipe => recipe.forEach(recip => addRecipe(recip)));
 
 
 
@@ -118,7 +112,7 @@ let addRecipe = function (recipe){
 
 	listeRecipe.push(recipe);
 
-	let ul = document.getElementById('recipes');;
+	let ul = document.getElementById('recipes');
 	
 	let li = h('li');
 
@@ -133,10 +127,13 @@ let addRecipe = function (recipe){
 
 
 
-loadRecipe(listeRecipe)
+loadRecipe(listeRecipe);
 
 
-addRecipe(l1);
+
+
+
+
 
 
 let button = document.getElementById('buttonAddRecipe');
@@ -160,16 +157,42 @@ let ul = document.getElementById('recipes');
 
 function removeRecipe() {
 
-	let recipe = {
-		name : document.getElementById('recipeName').value,
-		toppings :[]
-
-	}
-
-	addRecipe(recipe);
+	ul.removeChild();
 }
 
 ul.addEventListener('click', removeRecipe, false);
+
+
+
+
+function doThisLater() {
+
+	console.log('fini ?');
+}
+
+
+promiseTimeout(5000)
+.then(doThisLater);
+
+
+
+
+
+
+function promiseTimeout(time) {
+
+
+
+	return new Promise((resolve) => {
+
+		setTimeout(resolve, time);
+
+	});
+
+
+
+
+}
 
 
 
