@@ -10,23 +10,38 @@
   </header>
 
 
-  <div class='jumbotron'> 
+  <div class="container">
+    <div class ="row">
+      <div  class="col-xs-4">
+        <h2> Ingrédients </h2>
+
+        <ul id='toppings' class="list-group">
+        </ul>
 
 
-  <h2> Recettes </h2>
-
-  <ul id ='recipes' class="list-group">
-
-  </ul>
-  
-  <input id='recipeName' type='text'  value='Nom Recette'/>
-
-  <input id='buttonAddRecipe' type='button' class='btn btn-success' value='Ajouter Recette'/>
+      </div>
+      <div class="col-xs-4">
 
 
-</div>
+        <h2> Pizza </h2>
+
+        <ul id='pizzas' class="list-group">
+        </ul>
 
 
+      </div>
+      <div id='commands' class="col-xs-4">
+
+
+        <h2> Commandes </h2>
+
+        <ul id='commands' class="list-group">
+        </ul>
+
+
+      </div>
+    </div>
+  </div>
 
 
 
@@ -39,15 +54,10 @@
 
 
 </body>
-<footer>
 
-  © Copyright La Florentina - Tous droits réservés<br/>
-  <a id="contact" href="mailto:toto@test.fr">Nous contacter</a>
+<script src="bundle.js"></script>
 
 
-</footer>
-
-<script src="js/pizzeria.js"></script>
 </html>
 
 
